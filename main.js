@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const gallery = document.getElementById("gallery");
     const imageCount = document.getElementById("image-count");
     const tooltip = document.getElementById("custom-tooltip");
+    const backToTopBtn = document.getElementById("back-to-top");
 
     if (typeof images === "undefined") {
         imageCount.textContent = "Erro ao carregar lista de imagens.";
@@ -53,4 +54,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     gallery.appendChild(fragment);
+
+    // Back to top logic
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+            backToTopBtn.classList.remove("hidden");
+        } else {
+            backToTopBtn.classList.add("hidden");
+        }
+    });
+
+    backToTopBtn.addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
 });

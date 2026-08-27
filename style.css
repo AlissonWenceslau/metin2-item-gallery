@@ -132,6 +132,37 @@ body {
     transform: scale(0.95);
 }
 
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: var(--accent-color);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 3.5rem;
+    height: 3.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 99;
+    transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.2s ease;
+}
+
+.back-to-top:hover {
+    background-color: #0284c7; /* slightly darker blue */
+    transform: translateY(-3px);
+}
+
+.back-to-top.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .header-content {
