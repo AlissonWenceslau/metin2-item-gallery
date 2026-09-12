@@ -1,7 +1,7 @@
 // itemNames.js — Gerado automaticamente por build-names.js
-// Mapeamento vnum → nome do item (decodificado do item_proto SQL)
-// Gerado em: 12/09/2026, 08:30:48
-// Total de itens mapeados: 1882
+// Mapeamento vnum -> nome do item (decodificado do item_proto SQL)
+// Gerado em: 12/09/2026, 08:42:06
+// Total de itens com nome: 1882
 
 const itemNames = {
   10: "Espada+0",

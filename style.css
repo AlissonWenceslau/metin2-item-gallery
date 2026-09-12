@@ -66,7 +66,72 @@ body {
     border: 1px solid var(--header-border);
 }
 
+
+/* ── Filter Bar ───────────────────────────────────────────────── */
+.filter-bar {
+    max-width: 1400px;
+    margin: 1.25rem auto 0;
+    padding: 0 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.filter-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.4rem 1rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #1e293b;
+    color: #94a3b8;
+    font-family: var(--font-family);
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease,
+                border-color 0.2s ease, box-shadow 0.2s ease,
+                transform 0.15s ease;
+    white-space: nowrap;
+    user-select: none;
+}
+
+.filter-btn:hover {
+    background: #334155;
+    color: #e2e8f0;
+    border-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-1px);
+}
+
+.filter-btn:active {
+    transform: translateY(0);
+}
+
+.filter-btn.active {
+    background: var(--accent-color);
+    color: #0f172a;
+    border-color: transparent;
+    box-shadow: 0 0 16px rgba(56, 189, 248, 0.45);
+}
+
+.filter-btn.active:hover {
+    background: #7dd3fc;
+    transform: translateY(-1px);
+}
+
+.filter-icon {
+    font-size: 0.9rem;
+    line-height: 1;
+}
+
+.filter-label {
+    line-height: 1;
+}
+
 /* Gallery Grid */
+
 .gallery-container {
     max-width: 1400px;
     margin: 2rem auto;
@@ -140,6 +205,22 @@ body {
 
 .gallery-item.no-name:hover .item-label {
     color: #64748b;
+}
+
+/* ── Filtro por categoria ───────────────────────────────────────── */
+/* Cards ocultos pelo filtro ativo */
+.gallery-item.filtered-out {
+    display: none;
+}
+
+/* Animação suave de entrada ao trocar de filtro */
+@keyframes fadeInCard {
+    from { opacity: 0; transform: scale(0.92); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+.gallery-item:not(.filtered-out) {
+    animation: fadeInCard 0.2s ease forwards;
 }
 
 /* Custom Tooltip */
@@ -238,4 +319,24 @@ body {
     .item-label {
         font-size: 0.6rem;
     }
-}
+
+    .filter-bar {
+        padding: 0 1rem;
+        gap: 0.4rem;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding-bottom: 0.25rem;
+    }
+
+    .filter-bar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .filter-btn {
+        font-size: 0.72rem;
+        padding: 0.35rem 0.75rem;
+        flex-shrink: 0;
+    }
+}
